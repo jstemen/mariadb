@@ -1,9 +1,11 @@
-FROM webhippie/alpine:latest
+FROM jstemen/arm32v7-alpine:latest
 MAINTAINER Thomas Boerger <thomas@webhippie.de>
 
 VOLUME ["/var/lib/mysql", "/var/lib/backup"]
 
 EXPOSE 3306
+
+ADD VERSION . 
 
 WORKDIR /root
 CMD ["/bin/s6-svscan", "/etc/s6"]
